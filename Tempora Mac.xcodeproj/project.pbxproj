@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73415B052296D731001E6D05 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7354EE83226F3C5D00575FD1 /* WorkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSession.swift; sourceTree = "<group>"; };
 		73796FA7226B307A0011AB90 /* TimerPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPreferences.swift; sourceTree = "<group>"; };
 		73796FA9226B3E010011AB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TemporaMac/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -81,6 +82,7 @@
 		73FA264422688B070048A2DF = {
 			isa = PBXGroup;
 			children = (
+				73415B052296D731001E6D05 /* README.md */,
 				73796FA9226B3E010011AB90 /* Assets.xcassets */,
 				73FA264F22688B070048A2DF /* TemporaMac */,
 				73FA266022688B090048A2DF /* TemporaTests */,
