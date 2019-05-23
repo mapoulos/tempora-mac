@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Tempora" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="AiZ-0F-SZL" customClass="StatusMenuController" customModule="Tempora" customModuleProvider="target">
+            <connections>
+                <outlet property="breakSoundPopUpButton" destination="dbN-VA-ynr" id="N0y-o9-CCD"/>
+                <outlet property="preferencesPanel" destination="mfF-Pa-5kw" id="XjD-8o-tb7"/>
+                <outlet property="preferencesWindowController" destination="lmO-V9-M6w" id="oq7-7V-isC"/>
+                <outlet property="prefsWindow" destination="qfm-mK-CWr" id="veO-ok-G1a"/>
+                <outlet property="sessionSoundPopUpButton" destination="I92-MV-uZq" id="smo-gH-yCp"/>
+                <outlet property="startMenuItem" destination="kaU-Km-Z8O" id="tSQ-ml-Azp"/>
+                <outlet property="statusMenu" destination="VuO-8h-bFe" id="gnh-NH-KmQ"/>
+                <outlet property="timeMenuItem" destination="HvO-x8-ra7" id="bRi-Cv-VbV"/>
+            </connections>
+        </customObject>
+        <window title="Tempora Mac Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="mfF-Pa-5kw" userLabel="PreferencesWindow" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="1636" y="-68" width="322" height="203"/>
+            <rect key="screenRect" x="1440" y="-180" width="1920" height="1057"/>
+            <view key="contentView" id="qfm-mK-CWr">
+                <rect key="frame" x="0.0" y="0.0" width="322" height="203"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DVa-el-6Lq" userLabel="SessionLengthTextField">
+                        <rect key="frame" x="170" y="164" width="40" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="B4Q-wf-4ZM">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Dis-ac-Xbn"/>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="sessionLengthChanged:" target="lmO-V9-M6w" id="eLK-Wn-Bsf"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1ZX-tH-4g9" userLabel="BreakCountTextField">
+                        <rect key="frame" x="170" y="102" width="40" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="8ad-bg-btv"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jt4-a7-ZSm">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="QZr-47-Qgt">
+                                <real key="minimum" value="0.0"/>
+                                <real key="maximum" value="99"/>
+                            </numberFormatter>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="breaksChanged:" target="lmO-V9-M6w" id="Lq4-dm-bpD"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LaQ-V2-MOY" userLabel="BreakDurationTextField">
+                        <rect key="frame" x="170" y="75" width="40" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XZY-Sm-meE">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="VGG-yq-e20"/>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="breakLengthChanged:" target="lmO-V9-M6w" id="MqK-yI-hz6"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wnp-w1-tFT">
+                        <rect key="frame" x="21" y="167" width="136" height="17"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Session Length (min):" id="xch-Ir-ISo">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0He-gc-6Mt">
+                        <rect key="frame" x="108" y="104" width="49" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="lin-FG-w2d"/>
+                        </constraints>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Breaks:" id="Lhy-bV-yLV">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5i1-Yv-fuT">
+                        <rect key="frame" x="33" y="78" width="124" height="18"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Break Length (min):" id="029-8i-NRk">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="breakLengthChanged:" target="lmO-V9-M6w" id="UXH-st-2Nq"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qnl-HR-dSD">
+                        <rect key="frame" x="72" y="50" width="85" height="18"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Break Sound:" id="h3b-Xx-ZA2">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="breakLengthChanged:" target="lmO-V9-M6w" id="IPt-l8-lAg"/>
+                        </connections>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I92-MV-uZq" userLabel="SessionSoundPopUpButton">
+                        <rect key="frame" x="168" y="135" width="112" height="25"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="nyw-3w-V3o">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="O5i-f0-YRQ"/>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="sessionSoundChanged:" target="AiZ-0F-SZL" id="EoF-n3-4Nh"/>
+                        </connections>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbN-VA-ynr" userLabel="BreakSoundPopUpButton">
+                        <rect key="frame" x="168" y="46" width="112" height="25"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="TEO-Dw-UIF">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="MF7-VI-q93"/>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="breakSoundChanged:" target="AiZ-0F-SZL" id="6b9-Lb-aLR"/>
+                        </connections>
+                    </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LEn-Rl-0pr">
+                        <rect key="frame" x="59" y="139" width="98" height="18"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Session Sound:" id="0Yb-57-Gbr">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="breakLengthChanged:" target="lmO-V9-M6w" id="w7Y-DH-mpd"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DVa-el-6Lq" firstAttribute="leading" secondItem="Wnp-w1-tFT" secondAttribute="trailing" constant="15" id="10e-QU-r5n"/>
+                    <constraint firstAttribute="bottom" secondItem="qnl-HR-dSD" secondAttribute="bottom" constant="50" id="30r-oc-lrf"/>
+                    <constraint firstItem="1ZX-tH-4g9" firstAttribute="leading" secondItem="qfm-mK-CWr" secondAttribute="leading" constant="170" id="42X-u8-W3A"/>
+                    <constraint firstItem="1ZX-tH-4g9" firstAttribute="trailing" secondItem="DVa-el-6Lq" secondAttribute="trailing" id="57L-8b-rlz"/>
+                    <constraint firstItem="I92-MV-uZq" firstAttribute="leading" secondItem="LEn-Rl-0pr" secondAttribute="trailing" constant="15" id="6f1-Bc-1S2"/>
+                    <constraint firstItem="LEn-Rl-0pr" firstAttribute="trailing" secondItem="Wnp-w1-tFT" secondAttribute="trailing" id="8EL-IT-ke8"/>
+                    <constraint firstItem="LaQ-V2-MOY" firstAttribute="top" secondItem="1ZX-tH-4g9" secondAttribute="bottom" constant="5" id="8O6-1D-j45"/>
+                    <constraint firstItem="LEn-Rl-0pr" firstAttribute="centerY" secondItem="I92-MV-uZq" secondAttribute="centerY" id="ChS-gH-2Ry"/>
+                    <constraint firstItem="Wnp-w1-tFT" firstAttribute="width" secondItem="1ZX-tH-4g9" secondAttribute="height" multiplier="97:22" constant="39.409090909090907" id="G1Y-8L-sxi"/>
+                    <constraint firstItem="Wnp-w1-tFT" firstAttribute="top" secondItem="DVa-el-6Lq" secondAttribute="top" constant="2" id="G7E-Lc-IPf"/>
+                    <constraint firstItem="LaQ-V2-MOY" firstAttribute="leading" secondItem="5i1-Yv-fuT" secondAttribute="trailing" constant="15" id="ITd-Nq-bQp"/>
+                    <constraint firstItem="0He-gc-6Mt" firstAttribute="top" secondItem="LEn-Rl-0pr" secondAttribute="bottom" constant="18" id="IXQ-V8-YzT"/>
+                    <constraint firstAttribute="bottom" secondItem="5i1-Yv-fuT" secondAttribute="bottom" constant="78" id="JRK-oq-4n9"/>
+                    <constraint firstItem="1ZX-tH-4g9" firstAttribute="leading" secondItem="LaQ-V2-MOY" secondAttribute="leading" id="KRy-5M-efG"/>
+                    <constraint firstItem="Wnp-w1-tFT" firstAttribute="centerY" secondItem="qfm-mK-CWr" secondAttribute="centerY" constant="-74" id="LnI-Wm-sPZ"/>
+                    <constraint firstItem="0He-gc-6Mt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qfm-mK-CWr" secondAttribute="leading" constant="20" symbolic="YES" id="NC6-KY-Ycu"/>
+                    <constraint firstItem="Wnp-w1-tFT" firstAttribute="top" secondItem="1ZX-tH-4g9" secondAttribute="top" constant="-61" id="NMT-78-xpL"/>
+                    <constraint firstItem="0He-gc-6Mt" firstAttribute="centerY" secondItem="1ZX-tH-4g9" secondAttribute="centerY" id="PDP-86-SoB"/>
+                    <constraint firstItem="1ZX-tH-4g9" firstAttribute="leading" secondItem="0He-gc-6Mt" secondAttribute="trailing" constant="15" id="Qvv-a2-pl0"/>
+                    <constraint firstItem="1ZX-tH-4g9" firstAttribute="top" secondItem="qfm-mK-CWr" secondAttribute="top" constant="80" id="VLC-5p-xWI"/>
+                    <constraint firstItem="5i1-Yv-fuT" firstAttribute="top" secondItem="0He-gc-6Mt" secondAttribute="bottom" constant="8" id="XfM-CH-V0a"/>
+                    <constraint firstItem="Wnp-w1-tFT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qfm-mK-CWr" secondAttribute="leading" constant="20" symbolic="YES" id="YM6-SG-bRe"/>
+                    <constraint firstItem="qnl-HR-dSD" firstAttribute="top" secondItem="5i1-Yv-fuT" secondAttribute="bottom" constant="10" id="ah2-Jh-SlH"/>
+                    <constraint firstItem="5i1-Yv-fuT" firstAttribute="top" secondItem="LaQ-V2-MOY" secondAttribute="top" constant="1" id="cMC-7U-jHq"/>
+                    <constraint firstItem="dbN-VA-ynr" firstAttribute="leading" secondItem="qnl-HR-dSD" secondAttribute="trailing" constant="15" id="d4C-fI-gbU"/>
+                    <constraint firstItem="LEn-Rl-0pr" firstAttribute="trailing" secondItem="qnl-HR-dSD" secondAttribute="trailing" id="dLa-13-fJp"/>
+                    <constraint firstItem="qnl-HR-dSD" firstAttribute="centerY" secondItem="dbN-VA-ynr" secondAttribute="centerY" id="hd6-CH-gnO"/>
+                    <constraint firstItem="5i1-Yv-fuT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qfm-mK-CWr" secondAttribute="leading" constant="20" symbolic="YES" id="his-FO-QGE"/>
+                    <constraint firstItem="1ZX-tH-4g9" firstAttribute="leading" secondItem="DVa-el-6Lq" secondAttribute="leading" id="kJ6-pZ-87N"/>
+                    <constraint firstItem="LEn-Rl-0pr" firstAttribute="top" secondItem="Wnp-w1-tFT" secondAttribute="bottom" constant="10" id="ttu-ar-Poo"/>
+                    <constraint firstItem="1ZX-tH-4g9" firstAttribute="trailing" secondItem="LaQ-V2-MOY" secondAttribute="trailing" id="x4e-9m-Kx7"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="217" y="-93.5"/>
+        </window>
+        <customObject id="lmO-V9-M6w" customClass="PreferencesWindowController" customModule="Tempora" customModuleProvider="target">
+            <connections>
+                <outlet property="breakCountTextField" destination="1ZX-tH-4g9" id="XES-xU-uWg"/>
+                <outlet property="breakLengthTextField" destination="LaQ-V2-MOY" id="vtr-zd-Jpy"/>
+                <outlet property="sessionLengthTextField" destination="DVa-el-6Lq" id="Sqs-vp-60E"/>
+            </connections>
+        </customObject>
+        <menu id="VuO-8h-bFe">
+            <items>
+                <menuItem title="Time" id="HvO-x8-ra7">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Start" id="kaU-Km-Z8O">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="startClicked:" target="AiZ-0F-SZL" id="cfS-V8-Lpp"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Stop" id="BlW-SL-USl">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="stopClicked:" target="AiZ-0F-SZL" id="hlO-7o-tFS"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="FiC-Gh-2VU">
+                    <connections>
+                        <action selector="stopClicked:" target="AiZ-0F-SZL" id="bBP-hu-eMf"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Preferences..." id="MkF-13-h9a">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="preferencesClicked:" target="AiZ-0F-SZL" id="FNm-hJ-AeB"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="adq-68-FGK"/>
+                <menuItem title="Quit" id="8CK-o5-N5X">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quitClickedWithSender:" target="AiZ-0F-SZL" id="wMX-6M-6uN"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+    </objects>
+</document>
